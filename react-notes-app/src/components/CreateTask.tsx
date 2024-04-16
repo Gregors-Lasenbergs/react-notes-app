@@ -1,6 +1,6 @@
 import './CreateTask.css';
 import {useRef} from "react";
-import {TodoTask} from "./App.tsx";
+import {TodoTask} from "../App.tsx";
 
 type TaskCreateFieldProps = {
     onTaskCreate: (task: TodoTask) => void;
@@ -21,7 +21,9 @@ export const CreateTask = (props: TaskCreateFieldProps) => {
         const task: TodoTask = {
             name: name,
             info: info,
-            id: Date.now()
+            id: Date.now(),
+            onTaskEdit: () => {},
+            onTaskDelete: () => {}
         };
         props.onTaskCreate(task);
     }

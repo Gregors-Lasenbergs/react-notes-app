@@ -1,12 +1,21 @@
-type TaskProps = {
-    taskName: string;
-    taskDescription: string;
-}
-export const Task = (props: TaskProps) => {
+import {TodoTask} from "../App.tsx";
+
+export const Task = (props: TodoTask) => {
+    
+    const deleteCard = () => {
+        props.onTaskDelete(props.id);
+    }
+
+    function editCard() {
+        props.onTaskEdit(props.id);
+    }
+
     return (
         <div className={"task"}>
-            <h2> {props.taskName} </h2>
-            <p> {props.taskDescription} </p>
+            <button onClick={deleteCard}>Delete</button>
+            <button onClick={editCard}>Edit</button>
+            <h2> {props.name} </h2>
+            <p> {props.info} </p>
         </div>
     );
 };
